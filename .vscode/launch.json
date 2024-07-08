@@ -18,6 +18,33 @@
       ]
     },
     {
+      "name": "Buy & Sell - iPhone 15 Pro",
+      "request": "launch",
+      "type": "dart",
+      "deviceId": "iPhone 15 Pro",
+      "flutterMode": "debug",
+      "cwd": "apps/buyandsell",
+      "program": "lib/main.dart",
+    },
+    {
+      "name": "Buy & Sell - iPhone SE",
+      "request": "launch",
+      "type": "dart",
+      "deviceId": "iPhone SE",
+      "flutterMode": "debug",
+      "cwd": "apps/buyandsell",
+      "program": "lib/main.dart",
+    },
+    {
+      "name": "Buy & Sell - iPhone sm black (2)",
+      "request": "launch",
+      "type": "dart",
+      "deviceId": "00008030-000D445A11A3802E",
+      "flutterMode": "debug",
+      "cwd": "apps/buyandsell",
+      "program": "lib/main.dart",
+    },
+    {
       "name": "PhiLov - iPhone 15 Pro Max",
       "request": "launch",
       "type": "dart",

@@ -47,6 +47,9 @@ class DefaultPublicProfileScreen extends StatelessWidget {
         Scaffold(
           backgroundColor: Colors.transparent,
           appBar: AppBar(
+            shape: const RoundedRectangleBorder(
+              borderRadius: BorderRadius.zero,
+            ),
             backgroundColor: Colors.transparent,
             elevation: 0,
             leading: IconButton(
@@ -58,7 +61,10 @@ class DefaultPublicProfileScreen extends StatelessWidget {
             ),
             actions: [
               PopupMenuButton(
-                icon: const Icon(Icons.settings, color: Colors.white),
+                icon: const Icon(
+                  Icons.settings,
+                  color: Colors.white,
+                ),
                 itemBuilder: (context) {
                   return [
                     if (userUid == myUid) ...[

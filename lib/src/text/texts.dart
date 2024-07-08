@@ -595,6 +595,14 @@ class T {
     'lo': 'ເຂົ້າສູ່ລະບົບ',
   };
 
+  static Json logout = {
+    'en': 'Logout',
+    'ko': '로그아웃',
+    'vi': 'Đăng xuất',
+    'th': 'ออกจากระบบ',
+    'lo': 'ອອກຈາກລະບົບ',
+  };
+
   static Json loginFirstToUseMeetup = {
     'en': 'To use the meetup function, you must first log in.',
     'ko': '모임 기능을 이용하기 위해서는 로그인을 먼저 하셔야합니다.',
@@ -857,6 +865,12 @@ class T {
   };
 
   /// EO meetups translations
+
+  // Chat Input
+  static Json loginIsRequiredToUseThisFeature = {
+    'en': 'Login is required to use this feature.',
+    'ko': '이 기능을 사용하려면 로그인이 필요합니다.',
+  };
 
   /// Block
   static Json cannotBlockYourself = {
@@ -1705,6 +1719,75 @@ class T {
     'lo': 'ເພດ',
   };
 
+  static const Json profile = {
+    'en': 'Profile',
+    'ko': '프로필',
+    'th': 'โปรไฟล์',
+    'vi': 'Hồ sơ',
+    'lo': 'ໂປຣໄຟລ໌',
+  };
+
+  static const Json selectBirthdate = {
+    'en': 'Select Birthdate',
+    'ko': '생년월일 선택'
+  };
+
+  static const Json phoneNumberCannotBeEdited = {
+    'en': 'Phone number cannot be edited.',
+    'ko': '전화번호를 수정할 수 없습니다.',
+  };
+
+  static const Json noPhoneNumber = {
+    'en': 'No phone number',
+    'ko': '전화번호 없음',
+  };
+
+  // day like in date picker
+  static const Json day = {
+    'en': 'Day',
+    'ko': '일',
+    'vi': 'Ngày',
+    'th': 'วัน',
+    'lo': 'ມື້'
+  };
+
+  static const Json month = {
+    'en': 'Month',
+    'ko': '월',
+    'vi': 'Tháng',
+    'th': 'เดือน',
+    'lo': 'ເດືອນ'
+  };
+
+  static const Json year = {
+    'en': 'Year',
+    'ko': '년',
+    'vi': 'Năm',
+    'th': 'ปี',
+    'lo': 'ປີ'
+  };
+
+  static const Json pleaseSelectYourBirthDate = {
+    'en': 'Please select your birthdate.',
+    'ko': '생년월일을 선택해주세요',
+  };
+
+  static const Json pleaseInputYourEmail = {
+    'en': 'Please input your email.',
+    'ko': '이메일을 입력해주세요.',
+  };
+
+  static const Json accountIsAlreadyVerified = {
+    'en': 'Account is already verified.',
+    'ko': '이미 인증된 계정입니다.',
+  };
+
+  static const Json unableToUpdateBecauseAccountIsAlreadyVerified = {
+    'en':
+        "Unable to update account because account is already verified. Please contact admin for assistance if needed.",
+    'ko': '계정이 이미 확인되어 업데이트할 수 없습니다. 도움이 필요하시면 관리자에게 문의해 주세요.',
+  };
+
   static const Json any = {
     'en': 'Any',
     'ko': '상관없음',
@@ -1889,6 +1972,11 @@ class T {
     'ko': '글수정',
   };
 
+  static const Json howAreYouFeelingToday = {
+    'en': 'How are you feeling today?',
+    'ko': '오늘 어떠셨나요?',
+  };
+
   /// Meetup
 
   // static const String meetupEmptyList = 'No meetup found.';
@@ -1915,6 +2003,11 @@ class T {
     'th': 'กรุณากรอกหมายเลขโทรศัพท์ของคุณแล้วแตะปุ่ม "รับรหัสยืนยัน"',
     'vi': 'Vui lòng nhập số điện thoại của bạn và nhấn nút "Nhận mã xác minh".',
     'lo': 'ກະລຸນາໃສ່ເບີໂທລະສັບຂອງທ່ານແລະແຕະປຸ່ມ "ຮັບລະຫັດຢືນຢັນ".',
+  };
+
+  static const Json signInFailed = {
+    'en': 'Sign in failed.',
+    'ko': '로그인에 실패했습니다.',
   };
 
   // static const String phoneNumberInputHint = 'Enter your phone number.';

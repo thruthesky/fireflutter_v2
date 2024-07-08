@@ -5,9 +5,11 @@ class ForumChatInput extends StatefulWidget {
   const ForumChatInput({
     super.key,
     required this.category,
+    this.requireLogin,
   });
 
   final String category;
+  final Function()? requireLogin;
 
   @override
   State<ForumChatInput> createState() => _ForumChatInputState();
@@ -16,7 +18,6 @@ class ForumChatInput extends StatefulWidget {
 class _ForumChatInputState extends State<ForumChatInput> {
   final contentController = TextEditingController();
   final FocusNode focusNode = FocusNode();
-  bool isValid = false;
   double? progress;
   bool get inputIsEmpty => contentController.text.isEmpty;
   bool get inputIsNotEmpty => !inputIsEmpty;
@@ -65,7 +66,6 @@ class _ForumChatInputState extends State<ForumChatInput> {
             child: TextField(
               focusNode: focusNode,
               controller: contentController,
-              autofocus: inputCollapsed ? false : true,
               decoration: InputDecoration(
                 hintText: T.inputContentHere.tr,
                 prefixIcon: inputCollapsed
@@ -85,10 +85,15 @@ class _ForumChatInputState extends State<ForumChatInput> {
               maxLines: 6,
               onChanged: onChanged,
               onSubmitted: onSubmitted,
+              onTap: () {
+                dog("onTap: $hasFocus");
+                _checkLogin();
+              },
             ),
-            onFocusChange: (hasFocus) => setState(
-              () => this.hasFocus = hasFocus,
-            ),
+            onFocusChange: (hasFocus) {
+              dog("onFocusChange: $hasFocus");
+              setState(() => this.hasFocus = hasFocus);
+            },
           ),
           if (inputExpanded) ...[
             const SizedBox(height: 8),
@@ -102,9 +107,10 @@ class _ForumChatInputState extends State<ForumChatInput> {
                 IconButton(
                   onPressed: () async {
                     final re = await confirm(
-                        context: context,
-                        title: T.cancel.tr,
-                        message: T.doYouWanToCancel.tr);
+                      context: context,
+                      title: T.cancel.tr,
+                      message: T.doYouWanToCancel.tr,
+                    );
                     if (re == false) return;
                     urls.map((url) => StorageService.instance.delete(url));
                     setState(() {
@@ -130,16 +136,37 @@ class _ForumChatInputState extends State<ForumChatInput> {
     );
   }
 
+  /// Shows a dialog with the login required message if
+  /// the user is not logged in.
+  ///
+  /// Returns true if a user is logged in, false otherwise.
+  bool _checkLogin() {
+    if (my == null) {
+      focusNode.unfocus();
+      if (widget.requireLogin != null) {
+        widget.requireLogin?.call();
+      } else {
+        _showLoginRequiredDialog();
+      }
+      return false;
+    } else {
+      return true;
+    }
+  }
+
   onChanged(String value) {
+    // dog("onChanged: $value");
+    if (!_checkLogin()) {
+      contentController.clear();
+      return;
+    }
     setState(() {});
   }
 
   onSubmitted([String? value]) async {
+    if (!_checkLogin()) return;
     if (contentController.text.length <= 30) {
       toast(context: context, message: T.contentIsTooShort.tr);
-      // setState(() {
-      //   isValid = true;
-      // });
       return;
     }
 
@@ -160,7 +187,12 @@ class _ForumChatInputState extends State<ForumChatInput> {
     }
   }
 
+  _showLoginRequiredDialog() {
+    error(context: context, message: T.loginIsRequiredToUseThisFeature.tr);
+  }
+
   Future<void> onUpload() async {
+    if (!_checkLogin()) return;
     final url = await StorageService.instance.upload(
       context: context,
       progress: (p) => setState(() => progress = p),

@@ -54,6 +54,7 @@ class ChatRoomListTile extends StatelessWidget {
       },
       trailing: Column(
         mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.end,
         children: [
           if (room.updatedAt! > 0)
             Text(

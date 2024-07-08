@@ -133,8 +133,18 @@ class _HomeScreenState extends State<HomeScreen> {
                       // ),
                       // ElevatedButton(
                       //   onPressed: () => FriendService.instance
-                      //       .showFriendScreen(context: context),
-                      //   child: const Text("Friend Reject list for Requester"),
+                      //       .showListScreen(context: context),
+                      //   child: const Text("Friend List"),
+                      // ),
+                      // ElevatedButton(
+                      //   onPressed: () => FriendService.instance
+                      //       .showReceivedListScreen(context: context),
+                      //   child: const Text("My Friend Requests (received)"),
+                      // ),
+                      // ElevatedButton(
+                      //   onPressed: () => FriendService.instance
+                      //       .showSentListScreen(context: context),
+                      //   child: const Text("My Friend Requests (sent)"),
                       // ),
                       ElevatedButton(
                         onPressed: () =>

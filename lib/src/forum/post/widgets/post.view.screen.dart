@@ -138,30 +138,31 @@ class _PostViewScreenState extends State<PostViewScreen> {
                     ),
 
                     /// Bookmark
-                    Value(
-                      ref: Bookmark.postRef(post.id),
-                      builder: (v) {
-                        bookmarked = v == null;
-                        return TextButtonIcon(
-                          post: post,
-                          icon: Icon(
-                            v == null
-                                ? Icons.bookmark_add_outlined
-                                : Icons.bookmark_added,
-                          ),
-                          label: Text(
-                            v == null ? T.bookmark.tr : T.unbookmark.tr,
-                          ),
-                          onPressed: () async {
-                            await Bookmark.toggle(
-                              context: context,
-                              category: post.category,
-                              postId: post.id,
-                            );
-                          },
-                        );
-                      },
-                    ),
+                    if (myUid != null)
+                      Value(
+                        ref: Bookmark.postRef(post.id),
+                        builder: (v) {
+                          bookmarked = v == null;
+                          return TextButtonIcon(
+                            post: post,
+                            icon: Icon(
+                              v == null
+                                  ? Icons.bookmark_add_outlined
+                                  : Icons.bookmark_added,
+                            ),
+                            label: Text(
+                              v == null ? T.bookmark.tr : T.unbookmark.tr,
+                            ),
+                            onPressed: () async {
+                              await Bookmark.toggle(
+                                context: context,
+                                category: post.category,
+                                postId: post.id,
+                              );
+                            },
+                          );
+                        },
+                      ),
 
                     TextButtonIcon(
                       post: post,
