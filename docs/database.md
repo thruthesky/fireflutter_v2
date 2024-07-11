@@ -2,27 +2,7 @@
 
 ## 개요
 
-2024년 7월 Fireflutter 가 Realtime Database 에서 다시 Firestore 를 사용하도록 변경했다.
-
-2019년 처음 FireFlutter 를 처음 시작할 때, 데이터베이스를 Firestore 위주로 발전을 해 왔는데, 2023년 12월 메인 데이터베이스를 Realtime Database 로 변경을 하였다.
-
-Realtime Database 로 변경한 이유는 Firestore 에 비해 반응 속도가 매우 빠르고, 데이터구조가 JSON 방식으로 매우 단순하여 쿼리가 간편하고, 자동 백업 기능이 기본 장착되어져 있으며, Firestore 에 비해서 비용도 저렴한 등 여러가지 장점이 있어서 이다.
-
-주요 데이터 저장소를 Realtime Database 로 변경 후 좀 더 퀘적한 앱을 개발 할 수 있다는 생각을 가지게 되었지만, 문제는 Firestore 보다 필터링 기능이 못하고, 각종 기능이 뒤떨어져서 Realtime Database 를 쓰는 프레임을 꺼려한다는 것이다. 이러한 이유로 2024년 7월 메인 데이터베이스를 Firestore 로 변경하게 되었다. Realtime Database 에 비해 Firestore 의 장점은 너무나 뚜렷하다. 여러가지 장점들 있지만, 특히 상세한 필터링이 가능해 데이터 관리의 편의성이 크게 증대된 것이 특징이다.
-
-만약 Realtime Database 버전의 FireFlutter 를 사용하고자 한다면, [Realtime Database 브랜치](https://github.com/thruthesky/fireflutter/tree/v0.3.32-2024.07.08-realtime-database-version-backup)를 살펴보면 된다.
-
-
-
-## 채팅
-
-### 채팅방
-
-저장소: Firestore
-
-### 채팅메시지
-
-저장소: Realtime Database
+- 2024년 7월, 많은 기능을 담고 있던 FireFlutter 를 각 기능별로 패키지를 나누어 배포합니다. 기능 별 세부 항목으로 나뉘어진 패키지들은 서로 독립적으로 동작하여, 여러분들의 앱에 특정 패키지만 추가해서 써도 됩니다. 물론 같이 쓰면 호환이 잘 되어, 앱 개발하기가 더 편합니다.
 
 
 

@@ -2,7 +2,9 @@
 
 
 - [FireFlutter](#fireflutter)
+  - [Terms](#terms)
   - [Building as a core developer](#building-as-a-core-developer)
+  - [How to use](#how-to-use)
   - [Coding convention](#coding-convention)
     - [Documenations](#documenations)
       - [Mermaid](#mermaid)
@@ -18,9 +20,32 @@
     - [Friend Logic](#friend-logic)
 
 
+## Terms
+
+- `easy packages` is used to call the packages related with `FireFlutter` like `easyuser`, `easychat`, `easy_forum`, etc.
+
+
 ## Building as a core developer
 
 - Create your own example app with `example/lib/main.[feature].dart`. Don't touch others app.
+
+
+
+## How to use
+
+Usually, you will need to add these packages blow into `pubspec.ymal` to develop an app (or another package).
+
+```
+easy_helpers: latest
+easy_locale: latest
+easy_storage: latest
+easy_user: latest
+```
+
+These packages are compatible among `easy packages`. You can simply add only one package to `pubspec.yaml` like `easychat` to add the chat function to your app.
+
+
+
 
 
 ## Coding convention

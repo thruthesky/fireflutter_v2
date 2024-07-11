@@ -3,6 +3,8 @@
 .metadata
 .idea
 
+packages/
+**/packages/
 
 # remove firebase config
 .firebase/
