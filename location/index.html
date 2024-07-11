@@ -1,0 +1,1431 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../like/">
+      
+      
+        <link rel="next" href="../logic_overview/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.28">
+    
+    
+      
+        <title>위치, 위치 기반 검색 - 모델하우스</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.6543a935.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="모델하우스" class="md-header__button md-logo" aria-label="모델하우스" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            모델하우스
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              위치, 위치 기반 검색
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="모델하우스" class="md-nav__button md-logo" aria-label="모델하우스" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    모델하우스
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    파이어 플러터 이해
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../action_log/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    액션 로그
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../activity_log/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    활동 로그
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../admin/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    관리자
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bookmark/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    북마크
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../building_blocks/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    빌딩 블록
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chat/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    채팅
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cloud_functions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    클라우드 함수
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../comment/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    코멘트
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../common/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    공통사항
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../country_picker/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    국가 정보 선택
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../database/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    데이터베이스
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../design_overview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    하우스 디자인 개념
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dynamic_link/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    다이나믹 링크
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../error_handling/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    에러 핸들링
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../exception/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    예외 처리
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../firebase_extensions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    파이어베이스 익스텐션
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../folder_file_structure/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    폴더와 파일 구조
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../forum/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    게시판
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../friend/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    친구
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../full_text_search/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    풀텍스트 검색
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../functions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Fireship 에서 제공하는 함수들
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../helper_functions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    헬퍼 함수
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../house_extensions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    익스텐션
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../how_to_join/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    참여하기
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../install/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    설치
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../like/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    좋아요
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    위치, 위치 기반 검색
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    위치, 위치 기반 검색
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#geo-range-query" class="md-nav__link">
+    <span class="md-ellipsis">
+      GEO Range Query
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      보다 정확한 위치 기반 거리 검색
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="보다 정확한 위치 기반 거리 검색">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      위치 및 검색에 필요한 데이터 저장
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      거리 필터링
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      비용 계산
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      외부 검색엔진 사용
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../logic_overview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    모델하우스 로직 개념
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../meetup/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Meetup
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../memory_cache/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    메모리 캐시
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../messaging/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    푸시 알림
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../packages/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    패키지 사용 안내
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../post%20copy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    글
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../post/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    글
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quick_start/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    간단한 설명과 사용법
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../report/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    신고
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../storage/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    스토리지
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../style_guide/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    스타일 가이드
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../test/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    테스트
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../theme/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    테마 디자인
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../todo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    해야 할 일
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../translation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    다국어
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../user/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    사용자
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../user_settings/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    사용자 설정
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../widgets/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    위젯
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#geo-range-query" class="md-nav__link">
+    <span class="md-ellipsis">
+      GEO Range Query
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      보다 정확한 위치 기반 거리 검색
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="보다 정확한 위치 기반 거리 검색">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      위치 및 검색에 필요한 데이터 저장
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      거리 필터링
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      비용 계산
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      외부 검색엔진 사용
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="_1">위치, 위치 기반 검색</h1>
+<ul>
+<li>현재 FireFlutter 에서 지원하는 위치 기반 검색은 공식 문서에서 제공하는 <a href="https://firebase.google.com/docs/firestore/solutions/geoqueries?hl=ko">Firebase 의 Geo Query</a>를 부분적으로 지원한다. 히지만 검색 결과의 정확도를 높이기 위해서 불편한 계산을 함에도 불구하고 결과가 정확하지 않다.</li>
+<li>
+<p>아래의 GEO Range Query 를 참고한다.</p>
+</li>
+<li>
+<p>만약, 위치 기반 검색 결과에 오차가 있어도 괜찮다면, Geo hash 를 DB 에 저장해 놓고, 검색을 해도 된다.</p>
+</li>
+<li>그리고, 1km, 2km, 5km, 10km, 20km 등과 같이 원하는 데로 거리를 필터를 할 수 있는 것이 아니라, Geo hash 의 문자열 단계에 따라서 가능한데 이 또한 불편하다.</li>
+<li>
+<p>즉, 많은 것이 불편하고 오차가 있음에도 불구하고, 간단히 쓰고자 한다면 Geo Query 를 사용하면 된다.</p>
+</li>
+<li>
+<p>모든 사용자 마다 위/경도를 DB 에 저장하면, 나의 위/경도와 비교해서 각 사용자가 나와 얼마나 떨어져 있는지 km 로 쉽게 표시 할 수 있다.</p>
+</li>
+<li>
+<p>정확한 위치 기반 검색을 하고자 한다면 외부 데이터베이스 서비스(또는 검색 전용 서비스)를 이용하는 것이 좋은 방법이다. 왠만한 검색 기능이 있는 서비스들은 위치 기반 검색이 가능하다.</p>
+</li>
+<li>
+<p>하지만, 외부 검색 서비스를 이용하기 싫다면 아래의 방법을 이용해 본다. 다만, 비용이 외부 검색보다 더 비싸게 들 수 있다.</p>
+</li>
+<li>
+<p>참고로, 사용자의 정보를 외부 DB 에 mirror 해 놓는 경우, 그리고 그 외부 DB 의 속도가 느린 경우, 한 화면에서 여러 가지 옵션으로 사용자 검색을 할 때, 거리 검색 필터링을 하지 않는 경우 Firebase 데이터베이스를 이용해서 결과를 보여주고, 거리 검색 필터링이 추가되는 경우만 외부 DB 를 써도 되겠다.</p>
+</li>
+</ul>
+<h2 id="geo-range-query">GEO Range Query</h2>
+<p>pub.dev 에 있는  <a href="https://pub.dev/packages/georange">geo range</a> 패키지를 보면, km 단위로 쿼리를 하는 방법에 대해서 설명을 하고 있다. Firebase 의 Geo query 와 마찬가지로 false positive 와 edge case 가 있을 것이라 생각하지만, geohash 문자열을 3자리  ~ 7자리로 비교하는 것 보단느 나아 보인다. 하지만, 그래도 edge case 때문에 정확한 결과를 얻을 수 없다. Geohash 기반으로 검색하는 모든 것이 다 부정확하다는 것을 알고 있어야 한다.</p>
+<h2 id="_2">보다 정확한 위치 기반 거리 검색</h2>
+<ul>
+<li>나와 상대방의 lat/lon 값이 있으면 몇 km 가 떨어져 있는지 알 수 있고, 또 특정 범위 내로 필터링을 할 수 있다. pub.dev 에 많은 패키지들이 계산을 해 준다.</li>
+<li>Firebase 의 서비스에는 거리 기반 필터링하는 기능이 없으므로, 클라이언트 앱에서 계산을 하면 된다.</li>
+<li>참고로 Firebase 비용이 들 수 있으므로 가능한 Realtime Database 에 저장을 한다.</li>
+</ul>
+<h3 id="_3">위치 및 검색에 필요한 데이터 저장</h3>
+<ul>
+<li>각 사용자의 정보가 변경 될 때 마다, 검색을 위해서 <code>/user-locations/&lt;uid&gt;/{lat: ..., lon: ..., gender: ..., displayName: ..., birthYear, .., birthMonth: .., birthDay: .., 기타 ... }</code> 와 같이 저장한다.</li>
+</ul>
+<h3 id="_4">거리 필터링</h3>
+<ul>
+<li>앱이 시작 할 때, <code>onChildAdded</code> 이벤트로 모든 사용자의 검색 정보 <code>/user-locations/**</code> 를 가져와 lat/lon 을 파싱하여 계산해 놓는다. (나와의 거리가 얼마나 떨어져 있는지 계산). 또한 <code>onChildAdded</code> 는 새로운 (가입) 사용자의 정보가 추가되어도 계속 가져 올 수 있다.</li>
+<li><code>onChildAdded</code> 내부 함수에서 <code>onChildChanged</code> 이벤트를 사용하려 listen 한다. 즉, 사용자의 정보가 바뀌면 그 사용자 정보만 가져와 업데이트를 해 주면 된다.</li>
+<li>(필요한 경우) 나의 위치가 변경이 될 수 있으니, 10분에 한번씩 나의 lat/lon 으로 다른 사용자들과의 lat/lon 거리 비교를 다시 계산한다.</li>
+<li>중요한 것은, 앱의 특성(기능)에 따라 남/녀의 상대 성별만 검색하게 한다면, 남자는 여자만 검색할 수 있고, 여자는 남자만 검색 할 수 있다면, 전체 정보를 가져 올 필요 없이 상대 성별의 사용자 정보만 가져 올 수 있다. 즉, 약 50% 의 데이터 다운로드를 절감 할 수 있는 것이다.</li>
+<li>검색 목록에서 거리 필터링을 하면, 해당 거리 내에 있는 사용자들만 보여주면 된다.</li>
+<li>그 외 추가로 필터링을 하면 메모리에 있는 데이터만으로 검색(필터링)해서 화면에 보여주면 되는 것이다.</li>
+</ul>
+<h3 id="_5">비용 계산</h3>
+<p>아래의 비용은 대략적인 비용이며, 실제로는 이 보다 더 많은 비용이 지출 될 수 있다.
+앱이 사용자의 검색 정보를 가져 올 때, (각종 키 정보 포함) 한 명당 60 바이트 데이터 크기를 가져온다고 가정하면, 아래와 같다.</p>
+<ul>
+<li>앱의 규모가 작은 경우, 예를 들면</li>
+<li>전체 사용자 1 만명</li>
+<li>매일 활동 사용자 500 명인 경우</li>
+<li>
+<p>10000 * 500 * 60 = 하루 300,000,000 바이트 = 하루 0.3 달러</p>
+</li>
+<li>
+<p>앱의 규모가 큰 경우, 예를 들면,</p>
+</li>
+<li>전체 사용자 10 만명</li>
+<li>매일 활동 사용자 2,000 명인 경우,</li>
+<li>100000 * 2000 * 60 = 하루 12,000,000,000 바이트 = 하루 12 달러</li>
+</ul>
+<p>물론 위 금액은 남/녀가 상대 성별만 검색한다면 비용은 절반으로 줄어들 수 있다.</p>
+<p>전체 사용자가 1만명 이상 또는 매일 활동하는 사용자가 500 이상 (둘 중 하나) 이면, 다른 방법을 통해서 검색을 하는 것이 좋겠다.</p>
+<h2 id="_6">외부 검색엔진 사용</h2>
+<ul>
+<li>전문 검색엔진인 Algoria 또는 Typesense 의 geo search 를 사용하는 것이 좋겠다.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["content.code.copy"], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.fe8b6f2b.min.js"></script>
+      
+    
+  </body>
+</html>

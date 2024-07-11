@@ -1,0 +1,1705 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../design_overview/">
+      
+      
+        <link rel="next" href="../error_handling/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.28">
+    
+    
+      
+        <title>다이나믹 링크 - 모델하우스</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.6543a935.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="모델하우스" class="md-header__button md-logo" aria-label="모델하우스" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            모델하우스
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              다이나믹 링크
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="모델하우스" class="md-nav__button md-logo" aria-label="모델하우스" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    모델하우스
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    파이어 플러터 이해
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../action_log/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    액션 로그
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../activity_log/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    활동 로그
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../admin/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    관리자
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bookmark/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    북마크
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../building_blocks/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    빌딩 블록
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chat/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    채팅
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cloud_functions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    클라우드 함수
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../comment/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    코멘트
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../common/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    공통사항
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../country_picker/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    국가 정보 선택
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../database/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    데이터베이스
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../design_overview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    하우스 디자인 개념
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    다이나믹 링크
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    다이나믹 링크
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      설치
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="설치">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#android" class="md-nav__link">
+    <span class="md-ellipsis">
+      Android 설정
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#firebase" class="md-nav__link">
+    <span class="md-ellipsis">
+      Firebase 에 홈페이지를 운영하는 경우
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      링크 생성해서 공유하기
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#seo-site-preview" class="md-nav__link">
+    <span class="md-ellipsis">
+      링크가 공유된 경우, SEO &amp; Site Preview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      링크가 공유 된 경우, 상황 별 설명
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      링크 탭되어 앱 또는 웹이 열린 경우 처리 방법
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      플러터 앱에서 활용하기
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#linkservice" class="md-nav__link">
+    <span class="md-ellipsis">
+      LinkService 초기화 확인
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      여러 앱 지원하기
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      개발자 모드로 코딩하는 방법
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      배포하는 방법
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../error_handling/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    에러 핸들링
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../exception/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    예외 처리
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../firebase_extensions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    파이어베이스 익스텐션
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../folder_file_structure/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    폴더와 파일 구조
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../forum/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    게시판
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../friend/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    친구
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../full_text_search/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    풀텍스트 검색
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../functions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Fireship 에서 제공하는 함수들
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../helper_functions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    헬퍼 함수
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../house_extensions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    익스텐션
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../how_to_join/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    참여하기
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../install/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    설치
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../like/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    좋아요
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../location/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    위치, 위치 기반 검색
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../logic_overview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    모델하우스 로직 개념
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../meetup/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Meetup
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../memory_cache/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    메모리 캐시
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../messaging/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    푸시 알림
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../packages/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    패키지 사용 안내
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../post%20copy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    글
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../post/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    글
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quick_start/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    간단한 설명과 사용법
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../report/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    신고
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../storage/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    스토리지
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../style_guide/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    스타일 가이드
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../test/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    테스트
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../theme/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    테마 디자인
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../todo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    해야 할 일
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../translation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    다국어
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../user/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    사용자
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../user_settings/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    사용자 설정
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../widgets/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    위젯
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      설치
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="설치">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#android" class="md-nav__link">
+    <span class="md-ellipsis">
+      Android 설정
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#firebase" class="md-nav__link">
+    <span class="md-ellipsis">
+      Firebase 에 홈페이지를 운영하는 경우
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      링크 생성해서 공유하기
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#seo-site-preview" class="md-nav__link">
+    <span class="md-ellipsis">
+      링크가 공유된 경우, SEO &amp; Site Preview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      링크가 공유 된 경우, 상황 별 설명
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      링크 탭되어 앱 또는 웹이 열린 경우 처리 방법
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      플러터 앱에서 활용하기
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#linkservice" class="md-nav__link">
+    <span class="md-ellipsis">
+      LinkService 초기화 확인
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      여러 앱 지원하기
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      개발자 모드로 코딩하는 방법
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      배포하는 방법
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="_1">다이나믹 링크</h1>
+<p>Dynamic link 란 앱을 공유(다른 사람에게 알려주기 위해)하고자 할 때 앱 내에서 링크를 생성해 다른 사용자에게 전달 해 주고, 그 사용자가 링크를 클릭하면 앱이  설치되어져 있으면 앱을 열고, 설치되어져 있지 않으면 Appstore 또는 Playstore 또는 홈페이지를 여는 것이다. (물론, Appstore 나 Playstore 로 곧 바로 리다이렉트하지 않고 다른 방법으로 할 수 있지만, FireFlutter 에서는 기본적으로 리다이렉트를 하도록 했다.)</p>
+<p>단순히 앱 설치 링크를 공유하는 경우는 dynamic link 가 필요 없이, store url 을 바로 링크(공유) 할 수 있도록 하면 된다. 하지만, Dynamic link 에는 site preview 의 기능이 있으므로 더욱 유용하게 쓰일 수 있다.</p>
+<p>Dynamic link 를 사용하기 위해서는 FireFlutter 에서 사용하는 dynamic link 의 기본 개념의 이해가 좀 필요하다. 만약, dynamic link 를 사용하지 않는다면 굳이 본 항목을 살펴 볼 필요는 없다.</p>
+<p>첫째, dynamic link 를 담당하는 <code>link</code> 클라우드 함수를 설치한다.</p>
+<p>설치를 할 때, firebase hosting 설정에서 <code>appAssociation</code> 을 NONE 으로 하고, 사이트 최상단 경로에 <code>/.well-known/assetlinks.json</code> 과 <code>/.well-known/apple-app-site-association</code> (AASA) 로 접속하면 클라우드 함수 <code>link</code> 로 접속하도록 URL rewrite 를 설정한다.</p>
+<p>둘째, 링크가 공유되면 핸드폰 OS 가 App Link 와 Universial Link 관련 작업을 통해서 assetlinks 와 AASA 를 가져오는데, 올바른 정보를 넣어 주어야 한다. 이 값은 <code>_link_</code> 컬렉션의 <code>android</code> 와 <code>ios</code> 문서에 각각 넣어 주면 된다.</p>
+<p>셋째, 개발하는 앱(플러터 앱)에서 App Link 와 Universial Link 가 동작하도록 설정을 해 주어야 한다. 예를 들어, 카카오톡과 같은 앱에서 링크(Universal link 또는 App link)를 클릭하면 인앱브라우저가 열리고 앱을 바로 열지 못하고 웹을 연다. 이 때, Deeplink 설정을 통해서 억지로 앱을 열러고하는 경우가 있는데, 추천하지 않는다. 만약, 억지로 앱을 열려고 한다면 deeplink 추가 설정을 해 주고, 웹에서 Javascript 를 통해서 앱을 열면 된다.</p>
+<p>넷째, 링크를 만들어 공유하는 코드를 작성한다.
+링크를 만들때 site preview 옵션 부터 다양한 옵션을 넣어서 만들 수 있다.</p>
+<h2 id="_2">설치</h2>
+<p>먼저, <code>link</code> 클라우드 함수를 설치한다.</p>
+<p>그리고 Firestore 의 <code>_link_</code> 문서에 android, ios, html 설정을 한다.</p>
+<h3 id="android">Android 설정</h3>
+<p>AndroidManifest.xml 에 아래의 내용을 추가한다.</p>
+<div class="language-xml highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">&lt;activity</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">    </span><span class="na">android:name=</span><span class="s">&quot;.MainActivity&quot;</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="na">android:exported=</span><span class="s">&quot;true&quot;</span><span class="w"> </span><span class="nt">&gt;</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="cm">&lt;!-- Add this in activity --&gt;</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">    </span><span class="nt">&lt;intent-filter</span><span class="w"> </span><span class="na">android:autoVerify=</span><span class="s">&quot;true&quot;</span><span class="nt">&gt;</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">        </span><span class="nt">&lt;action</span><span class="w"> </span><span class="na">android:name=</span><span class="s">&quot;android.intent.action.VIEW&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">        </span><span class="nt">&lt;category</span><span class="w"> </span><span class="na">android:name=</span><span class="s">&quot;android.intent.category.DEFAULT&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">        </span><span class="nt">&lt;category</span><span class="w"> </span><span class="na">android:name=</span><span class="s">&quot;android.intent.category.BROWSABLE&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">        </span><span class="cm">&lt;!-- Accepts URIs that begin with https://YOUR_HOST.COM --&gt;</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">        </span><span class="nt">&lt;data</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">            </span><span class="na">android:scheme=</span><span class="s">&quot;https&quot;</span>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">            </span><span class="na">android:host=</span><span class="s">&quot;YOUR_HOST.COM&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">    </span><span class="nt">&lt;/intent-filter&gt;</span>
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="nt">&lt;/activity&gt;</span>
+</span></code></pre></div>
+<p>아래의 그림과 같이 SHA256 를 저장하면 된다.</p>
+<p><img alt="Android Firestore Setting" src="https://github.com/thruthesky/fireflutter/blob/main/docs/assets/images/dynamic_link_android.jpg?raw=true" /></p>
+<h2 id="firebase">Firebase 에 홈페이지를 운영하는 경우</h2>
+<p>Firebase Hosting 에 대한 충분한 이해가 필요하다.</p>
+<p>먼저, FireFlutter 의 dynamic link 는 기본 사이트에 운영하는 것을 가정으로 하는데, 홈페이지도 기본 사이트에 운영하고자 한다면 <code>FireFlutter</code> 의 <code>firebase.json</code> 으로 hosting deploy 하면, 홈페이지로 개발한 데이터가 삭제된다. 여러가지 방법이 있겠지만 가능하면 홈페이지 개발은 별도의 폴더에서 하고, <code>firebase init hosting</code> 을 통해서 아래와 같은 설정을 하여, dynamic link 에서 사용하는 함수를 그대로 쓸 수 있도록 한다.</p>
+<p>아래에서 <code>.well-known/**</code> 를 <code>link</code> 함수로 연결하여 assetlinks.json 과 AASA 를 적절하게 보여준다. 그리고 공유할 때 링크 생성은 <code>https://[기]본사이트-도메인]/link/[xxxx]</code> 와 같이 하면 되는 것이다. 그러면 링크가 탭 될 때, 웹브라우저가 열리는 경우, <code>link</code> 함수가 실행되어 적절한 처리를 하면 되는 것이다.</p>
+<p><code>firebase.json</code> 예제 - 아래와 같이 <code>appAssociation: NONE</code> 과 <code>rewrites</code> 를 개발하는 홈페이지 프로젝트의 <code>firebase.json</code> 에 넣어 주고 배포하면 dynamic link 를 그대로 쓸 수 있다.</p>
+<div class="language-dart highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="p">{</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span><span class="s2">&quot;hosting&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="s2">&quot;source&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;.&quot;</span><span class="p">,</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">    </span><span class="s2">&quot;ignore&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">      </span><span class="s2">&quot;firebase.json&quot;</span><span class="p">,</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">      </span><span class="s2">&quot;**/.*&quot;</span><span class="p">,</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">      </span><span class="s2">&quot;**/node_modules/**&quot;</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">    </span><span class="p">],</span>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">    </span><span class="s2">&quot;frameworksBackend&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">      </span><span class="s2">&quot;region&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;asia-east1&quot;</span>
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">    </span><span class="p">},</span>
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="w">    </span><span class="s2">&quot;appAssociation&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;NONE&quot;</span><span class="p">,</span>
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="w">    </span><span class="s2">&quot;rewrites&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="w">      </span><span class="p">{</span>
+</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="w">        </span><span class="s2">&quot;source&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;link/**&quot;</span><span class="p">,</span>
+</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="w">        </span><span class="s2">&quot;function&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;link&quot;</span>
+</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a><span class="w">      </span><span class="p">},</span>
+</span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a><span class="w">      </span><span class="p">{</span>
+</span><span id="__span-1-19"><a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a><span class="w">        </span><span class="s2">&quot;source&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;.well-known/**&quot;</span><span class="p">,</span>
+</span><span id="__span-1-20"><a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a><span class="w">        </span><span class="s2">&quot;function&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;link&quot;</span>
+</span><span id="__span-1-21"><a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a><span class="w">      </span><span class="p">}</span>
+</span><span id="__span-1-22"><a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a><span class="w">    </span><span class="p">]</span>
+</span><span id="__span-1-23"><a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-1-24"><a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a><span class="p">}</span>
+</span></code></pre></div>
+<h2 id="_3">링크 생성해서 공유하기</h2>
+<p>먼저 Firestore 의 <code>_link_</code> 컬렉션의 <code>apps</code> 문서에 <code>default</code> 키의 값은 아래와 같은 맵데이터를 저장한다.</p>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="err">_li</span><span class="kc">n</span><span class="err">k_/apps</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">  </span><span class="p">{</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="s2">&quot;default&quot;</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">      </span><span class="nt">&quot;appStoreUrl&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;The user will be redirected to this Appstore URL to download the app&quot;</span><span class="p">,</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">      </span><span class="nt">&quot;playStoreUrl&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;구글 안드로이드를 사용하면, 앱 다운로드할 URL&quot;</span><span class="p">,</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">      </span><span class="nt">&quot;appleAppId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;숫자로된 애플 앱 아이디. App store connect 에서 알 수 있다. Smart app banner 에서 사용 됨.&quot;</span><span class="p">,</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">      </span><span class="nt">&quot;webUrl&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;...&quot;</span><span class="p">,</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">      </span><span class="nt">&quot;appName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;...&quot;</span><span class="p">,</span>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">      </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;...&quot;</span><span class="p">,</span>
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">      </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;....&quot;</span><span class="p">,</span>
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="w">      </span><span class="nt">&quot;redirectingMessage&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;사용자에게 보여 줄 메시지&quot;</span><span class="p">,</span>
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="w">      </span><span class="nt">&quot;redirectingErrorMessage&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;에러가 발생하여 redirecting 할 수 없는 경우 사용자에게 보여 줄 메세지&quot;</span><span class="p">,</span>
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="w">      </span><span class="nt">&quot;faviconUrl&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;favicon&quot;</span><span class="p">,</span>
+</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="w">      </span><span class="nt">&quot;imageUrl&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;site preview image url&quot;</span><span class="p">,</span>
+</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a><span class="w">  </span><span class="p">}</span>
+</span></code></pre></div>
+<p>실제 예제 화면</p>
+<p><img alt="Dynamic Link Firestore Setting" src="https://github.com/thruthesky/fireflutter/blob/main/docs/assets/images/dynamic_link_firestore.jpg?raw=true" /></p>
+<p>위의 값에서 <code>title</code>, <code>descriptoin</code> 은 입력되는 값에 따라 적절히 대체된다.
+<code>default</code> 에 저장하는 이유는 링크가 <code>?app=abc&amp;pid=xxx</code> 와 같이 하나의 Firebase 에 여러앱이 있는 경우, <code>app</code> 이 들어오는 데, 만약 이 값이 없다면 기본 <code>default</code> 를 쓰기 위해서이다.</p>
+<p><code>title</code>, <code>description</code>, <code>imageUrl</code> 값은 uid, pid, cid 의 DB 정보에 의해서 적절하게 대체된다. 예를 들면, uid 의 state message 가 description 으로 들어가는 해당 uid 의 state message 가 없다면, app 문서에 있는 description 이 사용된다.</p>
+<p><code>webUrl</code> 은 공유된 링크가 컴퓨터에서 클릭되어, 웹 브라우저에서 열리고, 이 <code>webUrl</code> 로 redirect 된다. 따라서 <code>webUrl</code> 은 공유된 링크가 클릭되어 열리는 주소 임을 인지하고 특별하게 <code>https://my-domain.com/weblink</code> 와 같이 링크가 클릭되어 들어오는 주소로 준비를 하고, 링크로 들어오는 파라메타 값에 따라 다른 페이지로 이동 할 수 있는 코드를 짜 놓아야 한다.</p>
+<p>만약, 앱이 Android 에만 배포된 경우, 또는 iOS 에는 배포를 하지 않는 경우, appStoreUrl 은 webUrl 과 동일하게 할 수 있다. 그러면 iOS 사용자들은 자연스럽게 webUrl 로 이동한다. 이 때, query parameter 는 전달되지 않으므로 주의한다. Anroid 에 배포하지 않고 iOS 에만 배포하는 경우도 마찬가지로 할 수 있다.</p>
+<p><code>LinkService.instance.init()</code> 에 링크 생성을 위한 설정을 해 주어야 한다.</p>
+<ul>
+<li><code>linkUrlPrefix</code> - <code>https://abc.com/link</code></li>
+</ul>
+<p><code>LinkService.instance.generatePostLink()</code> 는 <code>linkUrlPrefix</code> 에 <code>?pid=xxxx</code> 를 붙여서 링크를 생성한다. 예를 들면, <code>https://abc.com/link?pid=xxx</code> 와 같이 링크가 만들어지는 것이다.</p>
+<h2 id="seo-site-preview">링크가 공유된 경우, SEO &amp; Site Preview</h2>
+<p>링크가 공유되는 경우, 여러 앱에서 site preview 를 보여주려고 한다.</p>
+<ul>
+<li>각 공유 링크에는 <code>uid</code>, <code>pid</code>, <code>cid</code> 등의 값이 있을 수 있다.</li>
+<li><code>uid</code> 는 회원 프로필 정보를 공유하는 할 때 사용하는 것으로 사용자 uid 값이 들어간다.</li>
+<li><code>pid</code> 는 게시글 또는 코멘트를 공유할 때 사용하는 것으로 글을 id 값이 들어간다.</li>
+<li>
+<p><code>cid</code> 는 (그룹) 채팅방을 공유할 때 사용하는 것으로 채팅방 id 값이 들어간다.</p>
+</li>
+<li>
+<p><code>uid</code>, <code>pid</code>, <code>cid</code> 값이 들어가지 않을 수 있다. 예를 들어 <code>https://my-domain.com/link?page=abc</code> 와 같이 공유를 할 수도 있다.</p>
+</li>
+<li>
+<p>각 앱(또는 각 웹)에서 site preview 를 할 때, 대부분의 경우 해당 URL 을 읽어서 meta 태그를 파싱해서 title, description, image 등을 화면에 보여준다.</p>
+</li>
+<li>즉, 링크가 화면에 보여지면, 앱(웹)에서 그 링크의 HTML 정보를 읽는데, 이 때, <code>link.function.ts</code> 의 <code>get(*)</code> 이 실행되고 각 <code>uid</code>, <code>pid</code>, <code>cid</code> 에 맞는 값을 DB 에 읽어서 <code>defaultHtml</code> 의 title, description, image 등을 패치 한 다음, 클라이언트(웹 또는 앱)으로 전달해 주는 것이다. 그리고 각 앱(웹)이 그 HTML 파싱해서 화면에 보여준다.</li>
+</ul>
+<h2 id="_4">링크가 공유 된 경우, 상황 별 설명</h2>
+<ul>
+<li>사용자 프로필을 공유하는 경우, 아래와 같이 공유 링크를 만들 수 있다.</li>
+</ul>
+<p><div class="language-sh highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>%<span class="w"> </span>curl<span class="w"> </span><span class="s2">&quot;http://127.0.0.1:5001/silbus/us-central1/link?uid=FjCrteoXHgdYi6MjRp09d51F71H3&amp;a=apple&amp;b=banana&quot;</span>
+</span></code></pre></div>
+위와 같이 하면, uid 사용자의 이름과 상태 메시지, 프로필 사진이 site preview 로 나타난다.</p>
+<ul>
+<li>글 또는 코멘트를 공유 할 때 아래와 같이 링크를 만들 수 있다.</li>
+</ul>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>%<span class="w"> </span>curl<span class="w"> </span><span class="s2">&quot;http://127.0.0.1:5001/silbus/us-central1/link?pid=-NvlptAoVSIoz40mNpGn&amp;a=apple&amp;b=banana&quot;</span>
+</span></code></pre></div>
+<p>코멘트를 보여주는 화면이 따로 있는 것이 아니다. 그래서 코멘트를 공유할 때 그냥 그 코멘트의 글 id 를 pid 에 넣어주면 된다. 그러면 앱(웹)에서는 그냥 그 글을 화면에 보여주면 된다.</p>
+<ul>
+<li>채팅방을 공유하는 경우 아래와 같이 링크를 만들 수 있다.</li>
+</ul>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>%<span class="w"> </span>curl<span class="w"> </span><span class="s2">&quot;http://127.0.0.1:5001/silbus/us-central1/link?cid=17MCAQOIRJPYuIYqR6qD&amp;a=apple&amp;b=banana&quot;</span>
+</span></code></pre></div>
+<p>와 같이 공유 링크를 만들 수 있다. Site preview 를 할 때, title, description, imageUrl 등은 <code>/chat-rooms/{cid}</code> 에서 가져와 적절하게 defaultHtml 에 패치해서 클라이언트로 전달한다.</p>
+<ul>
+<li>아래의 예제는 <code>uid</code>, <code>pid</code>, <code>cid</code> 를 쓰지 않고 query parameter 를 마음대로 준 경우이다. 이와 같은 경우 앱(또는 웹)으로 query parameter 가 그대로 전달된다.</li>
+</ul>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>%<span class="w"> </span>curl<span class="w"> </span><span class="s2">&quot;http://127.0.0.1:5001/silbus/us-central1/link?page=about&amp;a=apple&amp;b=banana&quot;</span>
+</span></code></pre></div>
+<p>예를 들어 OS 가 앱을 바로 열거나 Smart App Banner 에 의해서 열리면, <code>page=about&amp;a=apple&amp;b=banana</code> 가 전달된다. 공유된 링크가 클릭되어 webUrl 이 열리면, webUrl 의 맨 끝에 <code>?page=about&amp;a=appple&amp;b=banana</code> 가 붙어서 webUrl 로 redirect 된다. 즉, 앱이나 웹 등에서 각 로직에 맞게 적절이 코딩을 하면 되는 것이다.</p>
+<h2 id="_5">링크 탭되어 앱 또는 웹이 열린 경우 처리 방법</h2>
+<ul>
+<li>앱이 열리는 경우, pub.dev 의 <a href="https://pub.dev/packages/app_links">app_links</a> 패키지를 이용해서 입력 값을 받아서 적절한 조치를 하면 된다.</li>
+<li>
+<p>앱이 OS 에 의해서 바로 열리지 않고, 웹 사이트 내에서 smart app banner 에 의해서 열리는 경우도 동일한 입력 값이 전달되므로 앱 내에서 처리하는 로직은 동일하다.</p>
+</li>
+<li>
+<p>OS 가 앱을 열지 않고, 웹 브라우저를 열어서 공유 링크 페이지를 여는 경우</p>
+</li>
+<li>iOS 에서는 appStoreUrl 을 열고</li>
+<li>Android 에서는 playStoreUrl 을 열고</li>
+<li>Desktop 에서는 webUrl 을 연다.</li>
+</ul>
+<p>이 때, webUrl 을 열 때, 맨 끝에 query parameter 를 추가해 준다. 예를 들어 공유 링크가 <code>https://domain.com/link?a=b</code> 와 같고, webUrl 이 <code>https://domain.com/weblink</code> 와 같다면, desktop 에서는 <code>https://domain.com/weblink?a=b</code> 가 열린다. 그래서 웹 사이트에서 적절한 조치를 취하면 된다.</p>
+<p>OS 에서 앱을 바로 열지 못하고 웹 브라우저가 열릴 때, iOS 에서 Smart App Banner 를 보여주는 경우가 있다. 이 때, 앱을 실행하면 query parameter 가 앱으로 전달된다. 즉, OS 가 앱을 바로 열 때, query parameter 가 앱으로 전달되는게 그것과 동일한 값이 Smart App Banner 로 열어도 전달되도록 HTML 에 패치를 해 놓았다.</p>
+<h2 id="_6">플러터 앱에서 활용하기</h2>
+<p>아래와 같이 Dynamic Link 를 초기화 하면 된다.</p>
+<div class="language-dart highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="n">LinkService</span><span class="p">.</span><span class="n">instance</span><span class="p">.</span><span class="n">init</span><span class="p">(</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="w">  </span><span class="nl">urlPrefix:</span><span class="w"> </span><span class="s2">&quot;https://silbus.com&quot;</span><span class="p">,</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">  </span><span class="nl">autoRedirect:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="p">);</span>
+</span></code></pre></div>
+<p>위와 같이 <code>autoRedirect</code> 에 true 값을 주면, 사용자 프로필, 게시글, 채팅방이 자동으로 열린다.</p>
+<p>그리고 필요한 곳에서 아래와 같이 쓰면 된다.</p>
+<div class="language-dart highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="kd">await</span><span class="w"> </span><span class="n">Share</span><span class="p">.</span><span class="n">shareUri</span><span class="p">(</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="w">  </span><span class="n">LinkService</span><span class="p">.</span><span class="n">instance</span><span class="p">.</span><span class="n">generateChatRoomLink</span><span class="p">(</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">    </span><span class="n">chat</span><span class="p">.</span><span class="n">room</span><span class="p">.</span><span class="n">id</span><span class="p">,</span>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="w">  </span><span class="p">),</span>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="p">);</span>
+</span></code></pre></div>
+<p>참고로 <code>ShareButton</code> 위젯이 제공되며 이 위젯은 글 이나 프로필 등에서 사용되고 있다.</p>
+<p>커스텀 공유 링크를 만들고 싶다면 아래와 같이 하면 된다. 아래와 같이 하면 query parameter 가 공유 링크에 추가된다.</p>
+<div class="language-dart highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="kd">await</span><span class="w"> </span><span class="n">Share</span><span class="p">.</span><span class="n">shareUri</span><span class="p">(</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="w">  </span><span class="n">LinkService</span><span class="p">.</span><span class="n">instance</span><span class="p">.</span><span class="n">generateCustomLink</span><span class="p">(</span>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="w">    </span><span class="s1">&#39;page=OpenChatRoomList&#39;</span><span class="p">,</span>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="w">  </span><span class="p">),</span>
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="p">);</span>
+</span></code></pre></div>
+<p>위와 같이 하면 그냥 <code>https://silbus.com/link?page=OpenChatRoomList</code> 와 같이 링크가 만들어 진다.</p>
+<p>그리고 앱이 열리면, <code>onLinkTap</code> 콜백 함수가 호출된다. <code>onLinkTap</code> 함수는 아래와 같이 작성하면 된다. 물론 마음데로 로직을 만들면 된다. 예를 들어, 해당 링크가 탭되어 오픈되면 보너스 포인트를 추가하거나, 앱 설명 페이지를 이동하거나 등등, 공유 링크르 만들때 적절한 쿼리 파라메타라를 전달하고, 전달 받으면 된다.</p>
+<div class="language-dart highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="n">LinkService</span><span class="p">.</span><span class="n">instance</span><span class="p">.</span><span class="n">init</span><span class="p">(</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="w">  </span><span class="nl">urlPrefix:</span><span class="w"> </span><span class="s2">&quot;https://silbus.com&quot;</span><span class="p">,</span>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="w">  </span><span class="nl">autoRedirect:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="w">  </span><span class="nl">onLinkTap:</span><span class="w"> </span><span class="p">(</span><span class="n">parms</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="w">    </span><span class="n">dog</span><span class="p">(</span><span class="s1">&#39;onLinkTap: </span><span class="si">$</span><span class="n">parms</span><span class="s1">&#39;</span><span class="p">);</span>
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">globalContext</span><span class="p">.</span><span class="n">mounted</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="w">      </span><span class="n">globalContext</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="s1">&#39;/</span><span class="si">${</span><span class="n">parms</span><span class="p">[</span><span class="s1">&#39;page&#39;</span><span class="p">]</span><span class="o">!</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">);</span>
+</span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-10-9"><a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a><span class="w">  </span><span class="p">},</span>
+</span><span id="__span-10-10"><a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a><span class="p">);</span>
+</span></code></pre></div>
+<p>만약, <code>autoRedirect</code> 를 true 로 하지 않으면, 앱이 열릴 때, 쿼리 파라메타라를 직접 받아서 핸들링해야 한다. 이 때, <code>app_links</code> 패키지를 추천한다.</p>
+<h2 id="linkservice">LinkService 초기화 확인</h2>
+<ul>
+<li>만약, 앱 내에서 Link 기능을 사용하지 않을 것이고 그래서 LinkService 를 초기화하지 않았다면, 당연히 Link 관련 기능은 비활성화 되어야 할 것이다.</li>
+<li>이 때, <code>LinkService.instance.initialized</code> 가 false 이면, 초기화를 하지 않은 것으로 모든 Link 관련 기능을 비 활성화 하면된다.</li>
+</ul>
+<h2 id="_7">여러 앱 지원하기</h2>
+<p>하나의 파이어베이스에 여러개의 앱을 연결하여 사용 할 수 있다. 이 때, 다이나믹 링크도 여러개의 앱을 지원할 수 있는데, 먼저, 아래와 같이 초기화를 한다.</p>
+<div class="language-dart highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="n">LinkService</span><span class="p">.</span><span class="n">instance</span><span class="p">.</span><span class="n">init</span><span class="p">(</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="w">  </span><span class="nl">urlPrefix:</span><span class="w"> </span><span class="s2">&quot;https://silbus.com&quot;</span><span class="p">,</span>
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="w">  </span><span class="nl">app:</span><span class="w"> </span><span class="s1">&#39;anotherApp&#39;</span><span class="p">,</span>
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="w">  </span><span class="nl">autoRedirect:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="w">  </span><span class="nl">onLinkTap:</span><span class="w"> </span><span class="p">(</span><span class="n">parms</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">globalContext</span><span class="p">.</span><span class="n">mounted</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="w">      </span><span class="n">globalContext</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="s1">&#39;/</span><span class="si">${</span><span class="n">parms</span><span class="p">[</span><span class="s1">&#39;page&#39;</span><span class="p">]</span><span class="o">!</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">);</span>
+</span><span id="__span-11-8"><a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-11-9"><a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a><span class="w">  </span><span class="p">},</span>
+</span><span id="__span-11-10"><a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a><span class="p">);</span>
+</span></code></pre></div>
+<p>위에 보면 <code>app</code> 에 연결된 앱의 id 를 적어주는데 이 id 가 Firestore 의 <code>_link_/apps</code> 문서의 설정값이다. 기본적으로 <code>default</code> 키에 다이나믹 링크 설정을 하는데 앱이 여러개 인 경우, 아래와 같이 앱 id 를 키로 지정하여 설정을 추가하면 된다.</p>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="err">_li</span><span class="kc">n</span><span class="err">k_/apps</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="w">  </span><span class="err">de</span><span class="kc">fault</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="w">    </span><span class="c1">// ...</span>
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="w">  </span><span class="p">},</span>
+</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="w">  </span><span class="err">a</span><span class="kc">n</span><span class="err">o</span><span class="kc">t</span><span class="err">herApp</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-12-6"><a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="w">    </span><span class="c1">// ...</span>
+</span><span id="__span-12-7"><a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-12-8"><a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>이렇게 하면 공유 링크가 다른 사용자에게 공유되었을 때, 각 app id 에 따라 site preview 나 OS 가 앱을 바로 못열고 해당 링크를 웹 브라우저를 열었을 경우, 각 url 에 따라 리다이렉트를 하는 것이다.</p>
+<p>아래와 같이 호출해서 테스트를 해 보면 된다.</p>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>%<span class="w"> </span>curl<span class="w"> </span><span class="s2">&quot;http://127.0.0.1:5001/silbus/us-central1/link?app=anotherApp&amp;pid=-NvlptAoVSIoz40mNpGn&amp;a=apple&amp;b=banana&quot;</span>
+</span></code></pre></div>
+<h2 id="_8">개발자 모드로 코딩하는 방법</h2>
+<p>클라우드 함수 작업은 항상 로컬 컴퓨터에서 에뮬레이터를 실행해서, 로컬에서 테스트를 하면 된다. 소스 수정한 다음, deploy 해서 확인하는 경우가 없도록 한다.</p>
+<p>먼저, 아래와 같이 function emulator 를 실행한다.</p>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="w"> </span>%<span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="nv">GOOGLE_APPLICATION_CREDENTIALS</span><span class="o">=</span>~/.../silbus-firebase-service-account.json
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="w"> </span>%<span class="w"> </span>firebase<span class="w"> </span>use<span class="w"> </span>silbus
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="w"> </span>%<span class="w"> </span>firebase<span class="w"> </span>emulators:start<span class="w"> </span>--only<span class="w"> </span>functions
+</span></code></pre></div>
+<p>그리고 TypeScript 로 코딩하므로, 아래와 같이 실시간 빌드를 해 준다.</p>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>%<span class="w"> </span>npm<span class="w"> </span>run<span class="w"> </span>build:watch
+</span></code></pre></div>
+<p>그리고 아래와 같이 테스트를 한다.</p>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>%<span class="w"> </span>curl<span class="w"> </span><span class="s2">&quot;http://127.0.0.1:5001/silbus/us-central1/link?pid=-Nvgu90BBbLTz-vP-EJy&quot;</span>
+</span></code></pre></div>
+<h2 id="_9">배포하는 방법</h2>
+<p>아래와 같이 하면 eslint --fix 를 하고 배포한다.</p>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>%<span class="w"> </span>npm<span class="w"> </span>run<span class="w"> </span>deploy:link
+</span></code></pre></div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["content.code.copy"], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.fe8b6f2b.min.js"></script>
+      
+    
+  </body>
+</html>
